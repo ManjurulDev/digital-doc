@@ -7,6 +7,7 @@ import Login from './src/Login';
 import WelcomePage from './src/WelcomePage';
 import DoctorLogin from './src/DoctorLogin';
 import PatientLoginPage from './src/PatientLogin';
+import PatientDashboard from './src/PatientDashboard';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen name="Welcome" component={WelcomePage} />
+        <Stack.Screen name="PatientDashboard" component={PatientDashboard} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="CallPage" component={VoiceCallPage} />
