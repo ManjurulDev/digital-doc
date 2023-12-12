@@ -9,6 +9,7 @@ import DoctorLogin from './src/DoctorLogin';
 import PatientLoginPage from './src/PatientLogin';
 import PatientDashboard from './src/PatientDashboard';
 import PatientRegistration from './src/PatientRegistration';
+import PrescriptionForm from './src/PrescriptionForm';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
           name="PatientRegistration"
           component={PatientRegistration}
         />
+        <Stack.Screen name={'PrescriptionForm'} component={PrescriptionForm} />
       </Stack.Navigator>
     </NavigationContainer>
   );
