@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import AppDrawer from "./components/AppDrawer";
 
 const doctorsData = [
   // Example data structure
@@ -23,6 +24,7 @@ const DoctorItem = ({name, specialty, available}) => (
 const PatientDashboard = () => {
   return (
     <View style={styles.container}>
+      <AppDrawer />
       <Text style={styles.header}>Doctors List</Text>
       <FlatList
         data={doctorsData}
