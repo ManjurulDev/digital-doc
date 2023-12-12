@@ -18,7 +18,7 @@ const PatientLoginPage = ({navigation}) => {
   const handleLogin = async () => {
     postPatientLogin({identification, password})
         .then(({data: {data: data}}) => {
-          navigation.navigate('CallPage');
+          navigation.navigate('PatientDashboard');
         }).catch((error) => {
       if (error.response.status === 422) {
         let res = error.response.data.errors;
@@ -49,20 +49,11 @@ const PatientLoginPage = ({navigation}) => {
       />
       {!!errorsMessage && <Text style={styles.error}>{errorsMessage.password}</Text>}
       <View style={styles.rememberMeContainer}>
-        {/*<CheckBox*/}
-        {/*  value={rememberMe}*/}
-        {/*  onValueChange={setRememberMe}*/}
-        {/*  style={styles.checkbox}*/}
-        {/*/>*/}
-        {/*<Text style={styles.label}>Remember me</Text>*/}
-        {/*<TouchableOpacity onPress={() => console.log('Forgot Password')}>*/}
-        {/*  <Text style={styles.forgotPasswordText}>Forgot password?</Text>*/}
-        {/*</TouchableOpacity>*/}
       </View>
       <TouchableOpacity style={styles.loginButton}  onPress={() => handleLogin()}>
         <Text style={styles.loginButtonText}>Sign In</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => console.log('Sign Up')}>
+      <TouchableOpacity onPress={() => navigation.navigate('PatientRegistration')}>
         <Text style={styles.signUpText}>Don't have an account?</Text>
       </TouchableOpacity>
     </View>
