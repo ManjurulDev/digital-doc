@@ -8,6 +8,7 @@ import WelcomePage from './src/WelcomePage';
 import DoctorLogin from './src/DoctorLogin';
 import PatientLoginPage from './src/PatientLogin';
 import PatientDashboard from './src/PatientDashboard';
+import PatientRegistration from './src/PatientRegistration';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -21,6 +22,10 @@ export default function App() {
         <Stack.Screen name="CallPage" component={VoiceCallPage} />
         <Stack.Screen name="DoctorLogin" component={DoctorLogin} />
         <Stack.Screen name="PatientLogin" component={PatientLoginPage} />
+        <Stack.Screen
+          name="PatientRegistration"
+          component={PatientRegistration}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
