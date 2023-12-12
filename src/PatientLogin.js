@@ -6,15 +6,27 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {postPatientLogin} from "./app/api/patients.api";
 // import CheckBox from '@react-native-community/checkbox';
 
-const PatientLoginPage = () => {
-  const [identificationNumber, setIdentificationNumber] = useState('');
-  const [password, setPassword] = useState('');
+const PatientLoginPage = ({navigation}) => {
+  const [identification, setIdentification] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorsMessage, setErrors] = useState({});
 
-  const handleLogin = () => {
-    // Implement the login logic
-    console.log('Login credentials:', identificationNumber, password);
+
+  const handleLogin = async () => {
+    postPatientLogin({identification, password})
+        .then(({data: {data: data}}) => {
+          navigation.navigate('CallPage');
+        }).catch((error) => {
+      if (error.response.status === 422) {
+        let res = error.response.data.errors;
+        setErrors(res)
+      } else {
+        alert(error.response)
+      }
+    });
   };
 
   return (
@@ -24,9 +36,10 @@ const PatientLoginPage = () => {
       <TextInput
         style={styles.input}
         placeholder="Identification Number"
-        onChangeText={setIdentificationNumber}
-        value={identificationNumber}
+        onChangeText={setIdentification}
+        value={identification}
       />
+      {!!errorsMessage && <Text style={styles.error}>{errorsMessage.identification}</Text>}
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -34,6 +47,7 @@ const PatientLoginPage = () => {
         value={password}
         secureTextEntry
       />
+      {!!errorsMessage && <Text style={styles.error}>{errorsMessage.password}</Text>}
       <View style={styles.rememberMeContainer}>
         {/*<CheckBox*/}
         {/*  value={rememberMe}*/}
@@ -45,7 +59,7 @@ const PatientLoginPage = () => {
         {/*  <Text style={styles.forgotPasswordText}>Forgot password?</Text>*/}
         {/*</TouchableOpacity>*/}
       </View>
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+      <TouchableOpacity style={styles.loginButton}  onPress={() => handleLogin()}>
         <Text style={styles.loginButtonText}>Sign In</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => console.log('Sign Up')}>
@@ -56,6 +70,10 @@ const PatientLoginPage = () => {
 };
 
 const styles = StyleSheet.create({
+  error: {
+    color: 'red',
+    marginBottom: 5,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
