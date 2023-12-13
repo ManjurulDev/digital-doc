@@ -1,24 +1,30 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 
 const doctorsData = [
   // Example data structure
-  {id: '1', name: 'Dr. Jane Smith', specialty: 'Cardiology', available: true},
-  {id: '2', name: 'Dr. John Doe', specialty: 'Dermatology', available: false},
+  {id: '1', name: 'MR. Jane', specialty: 'Male', available: true},
+  {id: '2', name: 'MRS. John Doe', specialty: 'Female', available: false},
   // Add more doctors as needed
 ];
 
-const DoctorItem = ({name, specialty, available}) => (
-  <View style={styles.doctorItem}>
-    <View style={styles.doctorInfo}>
-      <Text style={styles.doctorName}>{name}</Text>
-      <Text style={styles.doctorSpecialty}>{specialty}</Text>
-    </View>
-    <Text style={styles.doctorAvailability}>
-      {available ? 'Available' : 'Unavailable'}
-    </Text>
-  </View>
-);
+const DoctorItem = ({name, specialty, available}) => {
+  const navigation = useNavigation();
+  return(
+      <View style={styles.doctorItem}>
+        <View style={styles.doctorInfo}>
+          <Text style={styles.doctorName}>{name}</Text>
+          <Text style={styles.doctorSpecialty}>{specialty}</Text>
+        </View>
+
+        <View>
+          {available ? <Text style={styles.doctorAvailability} onPress={() => navigation.navigate('CallPage')}>Available</Text> :
+              <Text style={styles.doctorAvailability}>Unavailable</Text>}
+        </View>
+      </View>
+  )
+};
 
 const DoctorDashboard = () => {
   return (
