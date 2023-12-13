@@ -1,12 +1,11 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-import AppDrawer from "./components/AppDrawer";
 
 const doctorsData = [
   // Example data structure
-  {id: '1', name: 'Dr. Jane Smith', specialty: 'Cardiology', available: true},
-  {id: '2', name: 'Dr. John Doe', specialty: 'Dermatology', available: false},
+  {id: '1', name: 'MR. Jane', specialty: 'Male', available: true},
+  {id: '2', name: 'MRS. John Doe', specialty: 'Female', available: false},
   // Add more doctors as needed
 ];
 
@@ -27,11 +26,10 @@ const DoctorItem = ({name, specialty, available}) => {
   )
 };
 
-const PatientDashboard = () => {
+const DoctorDashboard = () => {
   return (
     <View style={styles.container}>
-      <AppDrawer />
-      <Text style={styles.header}>Doctors List</Text>
+      <Text style={styles.header}>Patient List</Text>
       <FlatList
         data={doctorsData}
         keyExtractor={item => item.id}
@@ -77,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PatientDashboard;
+export default DoctorDashboard;
