@@ -7,17 +7,20 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {postPatientLogin} from "./app/api/patients.api";
+import {useDispatch} from "react-redux";
 // import CheckBox from '@react-native-community/checkbox';
+import {userLoaded} from "./store/slice/authSlice"
 
 const PatientLoginPage = ({navigation}) => {
   const [identification, setIdentification] = useState("");
   const [password, setPassword] = useState("");
   const [errorsMessage, setErrors] = useState({});
-
+  const dispatch = useDispatch();
 
   const handleLogin = async () => {
     postPatientLogin({identification, password})
         .then(({data: {data: data}}) => {
+          dispatch(userLoaded({patientLoggedIn: true, token: data.token, user: data.user}));
           navigation.navigate('PatientDashboard');
         }).catch((error) => {
       if (error.response.status === 422) {
