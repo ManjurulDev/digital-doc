@@ -6,10 +6,8 @@ import {useSelector} from "react-redux";
 
 export default function VoiceCallPage({navigation}) {
     const auth = useSelector((state) => state.auth);
-    const user = auth ? auth.user : null;
-    const {userName} = user.name;
+    const userName = auth.user.name;
     const userID = auth.authToken;
-
     return (
         <ZegoUIKitPrebuiltCall
             appID={1000394377}
