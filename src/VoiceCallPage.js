@@ -1,14 +1,13 @@
 // App.js
 import React from 'react';
 import {ZegoUIKitPrebuiltCall, GROUP_VIDEO_CALL_CONFIG} from '@zegocloud/zego-uikit-prebuilt-call-rn'
-import {View} from "react-native";
 import {useSelector} from "react-redux";
 
 export default function VoiceCallPage({navigation}) {
     const auth = useSelector((state) => state.auth);
     const userName = auth.user.name;
-    const userID = 'test_user_1';
-    const callID = auth.authToken;
+    const userID = auth.user.identification;
+    const callID = 'test_user_1';
 
     return (
         <ZegoUIKitPrebuiltCall
