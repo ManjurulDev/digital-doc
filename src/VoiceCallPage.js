@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 export default function VoiceCallPage({navigation}) {
     const auth = useSelector((state) => state.auth);
     const userName = auth.user.name;
-    const userID = auth.user.identification;
+    const userID = 'test_user_1';
     const callID = auth.authToken;
 
     return (
