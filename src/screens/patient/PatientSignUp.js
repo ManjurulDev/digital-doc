@@ -44,7 +44,7 @@ const PatientSignUp = ({navigation}) => {
 
             postPatientsRegister(fromModel)
                 .then(({data: {message}}) => {
-                    navigation.navigate('SignIn')
+                    navigation.navigate('PatientSignIn')
                 }).catch((error) => {
                 if (error.response.status === 422) {
                     let res = error.response.data.errors;

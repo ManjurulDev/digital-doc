@@ -15,6 +15,7 @@ const PatientSignIn = ({navigation}) => {
   const renderHeader = useMemo(() => {
     return <components.Header goBack={true}/>;
   }, []);
+
   const changeCheckbox = useCallback(() => {
     setFiltered((currentValue) => !currentValue);
   }, []); // look no dependencies!
@@ -29,7 +30,7 @@ const PatientSignIn = ({navigation}) => {
     const handleLogin = async () => {
       postPatientLogin({identification, password})
           .then(({data: {data: data}}) => {
-            navigation.navigate('PatientRegistration')
+              navigation.navigate('TabNavigator');
             dispatch(userLoaded({patientLoggedIn: true, token: data.token, user: data.user}));
           }).catch((error) => {
         if (error.response.status === 422) {

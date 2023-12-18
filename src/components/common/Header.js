@@ -1,7 +1,7 @@
 import {View, TouchableOpacity, Text, Image} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {openModal} from '../../store/modalSlice';
+import {openModal} from '../../store/slice/modalSlice';
 import {useDispatch} from 'react-redux';
 
 import {svg} from '../../assets';

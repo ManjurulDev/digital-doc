@@ -29,7 +29,7 @@ const DoctorSignIn = ({navigation}) => {
         const handleLogin = async () => {
             postDoctorLogin({identification, password})
                 .then(({data: {data: data}}) => {
-                    navigation.navigate('DoctorDashboard')
+                    navigation.navigate('TabNavigator')
                     dispatch(userLoaded({doctorLoggedIn: true, token: data.token, user: data.user}));
                 }).catch((error) => {
                 if (error.response.status === 422) {
