@@ -72,7 +72,7 @@ const BurgerMenuModal = () => {
                             style={{flexDirection: 'row', alignItems: 'center'}}
                             onPress={() => {
                                 dispatch(closeModal());
-                                navigation.navigate('MyProfile');
+                                navigation.navigate('ProfileScreen');
                             }}
                         >
                             <View
@@ -84,7 +84,10 @@ const BurgerMenuModal = () => {
                                     borderRadius: 20,
                                 }}
                             >
-                                <svg.PhotoSvg/>
+                                <ImageLoader
+                                    source={require('../assets/icons/804946.png')}
+                                    style={{width: '100%', height: '100%', marginRight: 10}}
+                                />
                             </View>
                             <View>
                                 <Text
@@ -126,18 +129,28 @@ const BurgerMenuModal = () => {
                     {/*    />*/}
                     {/*</View>*/}
 
+                    {/*<BurgerMenuItem*/}
+                    {/*    title={'FAQ'}*/}
+                    {/*    onPress={() => {*/}
+                    {/*        dispatch(closeModal());*/}
+                    {/*        navigation.navigate('Faq');*/}
+                    {/*    }}*/}
+                    {/*/>*/}
+
+
+                    {/*<BurgerMenuItem*/}
+                    {/*    title={'Privacy Poliicy'}*/}
+                    {/*    onPress={() => {*/}
+                    {/*        dispatch(closeModal());*/}
+                    {/*        navigation.navigate('PrivacyPolicy');*/}
+                    {/*    }}*/}
+                    {/*/>*/}
+
                     <BurgerMenuItem
-                        title={'FAQ'}
+                        title={'Log Out'}
                         onPress={() => {
                             dispatch(closeModal());
-                            navigation.navigate('Faq');
-                        }}
-                    />
-                    <BurgerMenuItem
-                        title={'Privacy Poliicy'}
-                        onPress={() => {
-                            dispatch(closeModal());
-                            navigation.navigate('PrivacyPolicy');
+                            navigation.navigate('LogOut');
                         }}
                     />
                     <BurgerMenuItem title={'Help & Support'} onPress={() => {

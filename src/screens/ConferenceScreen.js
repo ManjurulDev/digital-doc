@@ -20,10 +20,10 @@ export default function ConferenceScreen({navigation}) {
                 // You can also use ONE_ON_ONE_VOICE_CALL_CONFIG/GROUP_VIDEO_CALL_CONFIG/GROUP_VOICE_CALL_CONFIG to make more types of calls.
                 ...GROUP_VIDEO_CALL_CONFIG,
                 onOnlySelfInRoom: () => {
-                    navigation.navigate('HomePage')
+                    navigation.navigate('TabNavigator')
                 },
                 onHangUp: () => {
-                    navigation.navigate('HomePage')
+                    navigation.navigate('TabNavigator')
                 },
             }}
         />

@@ -42,11 +42,23 @@ const TabNavigator = () => {
       case 'Home':
         return <Home />;
       case 'Search':
-        return <Categories />;
+        return (
+            <View style={{marginTop:40,height:654}}>
+              <Text style={{fontSize:30, textAlign:'center'}}>Coming Soon</Text>
+            </View>
+        );
       case 'Notifications':
-        return <Notifications />;
+        return (
+            <View style={{marginTop:40,height:654}}>
+              <Text style={{fontSize:30, textAlign:'center'}}>Coming Soon</Text>
+            </View>
+        );
       case 'Inbox':
-        return <Inbox />;
+        return (
+            <View style={{marginTop:40,height:654}}>
+              <Text style={{fontSize:30, textAlign:'center'}}>Coming Soon</Text>
+            </View>
+        );
     }
   };
 

@@ -33,6 +33,11 @@ const StackNavigator = () => {
                 component={screens.PatientSignUp}
             />
 
+            <Stack.Screen
+                name={screens.ProfileScreen.name}
+                component={screens.ProfileScreen}
+                options={{headerShown: false}}
+            />
 
             <Stack.Screen
                 name={screens.PatientDashboard.name}
@@ -46,6 +51,12 @@ const StackNavigator = () => {
             <Stack.Screen
                 name={screens.PrescriptionScreen.name}
                 component={screens.PrescriptionScreen}
+            />
+
+            <Stack.Screen
+                name={screens.LogOut.name}
+                component={screens.LogOut}
+                options={{headerShown: false}}
             />
         </Stack.Navigator>
     )

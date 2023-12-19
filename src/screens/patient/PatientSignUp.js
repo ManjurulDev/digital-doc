@@ -77,28 +77,25 @@ const PatientSignUp = ({navigation}) => {
                     Sign up
                 </Text>
 
-                <Picker
-                    className="css-textinput-11aywtz"
+                <View
                     style={{
-                        paddingLeft: 20,
-                        height: 50,
                         width: '100%',
                         borderWidth: 1,
                         borderColor: theme.colors.stroke,
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                        alignItems: 'center',
                         marginBottom: 20
-                    }}
-                    selectedValue={title}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setTitle(itemValue)
-                    }>
-                    <Picker.Item label="Select Title" value=""/>
-                    {titleOptions.length > 0 && titleOptions.map((item) => {
-                        return <Picker.Item label={item} value={item} key={item}/>
-                    })}
-                </Picker>
+                    }}>
+                    <Picker
+                        selectedValue={title}
+                        onValueChange={(itemValue, itemIndex) =>
+                            setTitle(itemValue)
+                        }>
+                        <Picker.Item label="Title" value=""/>
+                        {titleOptions.length > 0 && titleOptions.map((item) => {
+                            return <Picker.Item label={item} value={item} key={item}/>
+                        })}
+                    </Picker>
+                </View>
+
 
                 <components.InputField
                     placeholder="Name"

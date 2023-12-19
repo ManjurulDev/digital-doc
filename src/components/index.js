@@ -7,6 +7,9 @@ import DoctorConferance from './DoctorConferance';
 import MyAppointments from './MyAppointments';
 import DiagnosticsAndTests from './DiagnosticsAndTests';
 import TopRatedDoctors from './TopRatedDoctors';
+import ProfileItem from './ProfileItem';
+import ImageLoader from "./ImageLoader";
+import FooterButton from "./FooterButton";
 
 
 const components = {
@@ -19,6 +22,9 @@ const components = {
   MyAppointments,
   DiagnosticsAndTests,
   TopRatedDoctors,
+  ProfileItem,
+  ImageLoader,
+  FooterButton,
 };
 
 export {components};
