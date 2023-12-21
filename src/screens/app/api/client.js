@@ -14,7 +14,6 @@ const getAuthToken = () => {
     return 'Bearer ' + token
 }
 
-
 const authInterceptor = (config) => {
     const EXCEPT_ROUTES = ['doctors/login','patients/login','patients/register','options'];
 
@@ -23,7 +22,6 @@ const authInterceptor = (config) => {
     }
     return config
 }
-
 
 httpClient.interceptors.request.use(authInterceptor)
 
