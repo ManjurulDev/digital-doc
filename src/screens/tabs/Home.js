@@ -27,9 +27,10 @@ const Home = () => {
     // };
 
     const renderDiagnosticsAndTests = () => {
-
-            return <components.DiagnosticsAndTests version={version}/>;
-
+        if (isDoctorLoggedIn) {
+            return <components.DoctorDashboard version={version}/>;
+        }
+        return <components.DiagnosticsAndTests version={version}/>;
     };
 
     // const renderBanner = () => {

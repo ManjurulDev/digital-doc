@@ -47,6 +47,7 @@ const StackNavigator = () => {
             <Stack.Screen
                 name={screens.ConferenceScreen.name}
                 component={screens.ConferenceScreen}
+                options={{title: 'Meeting'}}
             />
             <Stack.Screen
                 name={screens.PrescriptionScreen.name}

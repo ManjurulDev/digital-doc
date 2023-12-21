@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useSelector} from "react-redux";
+import {store} from "../../../store/store";
 
 const httpClient = axios.create({
     baseURL: 'https://server.zyngchat.com/api/',
@@ -10,7 +10,7 @@ const httpClient = axios.create({
 
 
 const getAuthToken = () => {
-    const token = useSelector((state) => state.auth.authToken);
+    const token = store.getState().auth.authToken;
     return 'Bearer ' + token
 }
 

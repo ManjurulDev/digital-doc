@@ -10,6 +10,7 @@ import TopRatedDoctors from './TopRatedDoctors';
 import ProfileItem from './ProfileItem';
 import ImageLoader from "./ImageLoader";
 import FooterButton from "./FooterButton";
+import DoctorDashboard from "./DoctorDashboard";
 
 
 const components = {
@@ -25,6 +26,7 @@ const components = {
   ProfileItem,
   ImageLoader,
   FooterButton,
+  DoctorDashboard,
 };
 
 export {components};

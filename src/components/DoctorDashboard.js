@@ -1,15 +1,15 @@
 import {View, ScrollView, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {svg} from '../assets';
 
 import BlockHeader from './BlockHeader';
-import DiagnosticItem from './DiagnosticItem';
-import {getMeetings} from "../screens/app/api/patients.api";
-import DoctorList from "./DoctorList";
+import {getMeetings} from "../screens/app/api/doctor.api";
+import PatientList from "./PatientList";
 
 
-const DiagnosticsAndTests = ({version}) => {
+const DoctorDashboard = ({version}) => {
     const [meetings, setMeetings] = useState([]);
 
     useEffect(() => {
@@ -22,28 +22,23 @@ const DiagnosticsAndTests = ({version}) => {
 
         return (
             <View style={{marginTop: 20, marginHorizontal: 20}}>
-                <BlockHeader
-                    title="Doctors"
-                    containerStyle={{marginBottom: 20}}
-                />
+                <BlockHeader title="Meetings" containerStyle={{marginBottom: 20}}/>
                 {meetings.map((meeting, index) => {
                     return (
-                        <DoctorList
-                            boxColor="#18DF80"
-                            title={meeting ? meeting.doctor.name : null}
-                            description="Nephrology"
-                            icon={<svg.DoctorSvg/>}
-                            version={version}
+                        <PatientList
+                            boxColor="#34B6FF"
+                            title={meeting.patient.name}
+                            icon={<svg.PatientSvg/>}
                             key={index}
                             meeting={meeting}
+                            version={version}
                         />
                     )
                 })}
             </View>
         );
     };
-
     return v1();
 };
 
-export default DiagnosticsAndTests;
+export default DoctorDashboard;

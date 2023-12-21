@@ -25,16 +25,6 @@ const MyAppointments = () => {
                     paddingBottom: 21,
                 }}
             >
-                <Text
-                    style={{
-                        marginBottom: 20,
-                        ...theme.fonts.H4,
-                        textTransform: 'capitalize',
-                        color: theme.colors.darkBlue,
-                    }}
-                >
-                    My appointments
-                </Text>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View
                         style={{
@@ -106,7 +96,7 @@ const MyAppointments = () => {
                                     color: theme.colors.textColor,
                                 }}
                             >
-                                {userInfo ? userInfo.identification : null}
+                               ID : {userInfo ? userInfo.identification : null}
                             </Text>
                         </View>
 
@@ -126,9 +116,8 @@ const MyAppointments = () => {
                                     fontSize: 10,
                                     textTransform: 'capitalize',
                                 }}
-                                onPress={() => navigation.navigate('ConferenceScreen')}
                             >
-                                Join
+                                {userInfo ? userInfo.email : null}
                             </Text>
                         </TouchableOpacity>
                     </View>

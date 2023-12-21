@@ -9,8 +9,6 @@ import {useNavigation} from "@react-navigation/native";
 import {useSelector} from "react-redux";
 
 const DoctorConference = ({version}) => {
-
-    const navigation = useNavigation();
     const user = useSelector((state) => state.auth.user);
     const date = new Date();
   const v1 = () => {
@@ -18,7 +16,7 @@ const DoctorConference = ({version}) => {
       <View
         style={{
           paddingHorizontal: 20,
-          marginTop: 40,
+          marginTop: 20,
           borderBottomWidth: 1,
           borderBottomColor: theme.colors.stroke,
           paddingBottom: 21,
@@ -99,7 +97,7 @@ const DoctorConference = ({version}) => {
                   color: theme.colors.textColor,
                 }}
               >
-                  {user ? user.speciality.name : null}
+                  {user ? user.email : null}
               </Text>
             </View>
 
@@ -119,9 +117,8 @@ const DoctorConference = ({version}) => {
                   fontSize: 10,
                   textTransform: 'capitalize',
                 }}
-                onPress={() => navigation.navigate('Video')}
               >
-                Join
+                  {user ? user.speciality.name : null}
               </Text>
             </TouchableOpacity>
           </View>
