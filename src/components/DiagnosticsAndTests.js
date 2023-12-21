@@ -26,7 +26,7 @@ const DiagnosticsAndTests = ({version}) => {
                     title="Doctors"
                     containerStyle={{marginBottom: 20}}
                 />
-                {meetings.map((meeting, index) => {
+                {meetings.length > 0 && meetings.map((meeting, index) => {
                     return (
                         <DoctorList
                             boxColor="#18DF80"

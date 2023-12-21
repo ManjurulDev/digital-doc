@@ -9,24 +9,23 @@ export default function ConferenceScreen({route,navigation}) {
     const userID = auth.user.identification;
     // const callID = 'test_user_1';
     const { callID } = route.params;
-
-    // return (
-    //     <ZegoUIKitPrebuiltCall
-    //         appID={1000394377}
-    //         appSign={'d236d357c591b6aeb99a491687cd0ccc963d4acc70dc86d8a6f5b70fbdcb20aa'}
-    //         userID={userID} // userID can be something like a phone number or the user id on your own user system.
-    //         userName={userName}
-    //         callID={callID} // callID can be any unique string.
-    //         config={{
-    //             // You can also use ONE_ON_ONE_VOICE_CALL_CONFIG/GROUP_VIDEO_CALL_CONFIG/GROUP_VOICE_CALL_CONFIG to make more types of calls.
-    //             ...GROUP_VIDEO_CALL_CONFIG,
-    //             onOnlySelfInRoom: () => {
-    //                 navigation.navigate('TabNavigator')
-    //             },
-    //             onHangUp: () => {
-    //                 navigation.navigate('TabNavigator')
-    //             },
-    //         }}
-    //     />
-    // );
+    return (
+        <ZegoUIKitPrebuiltCall
+            appID={1000394377}
+            appSign={'d236d357c591b6aeb99a491687cd0ccc963d4acc70dc86d8a6f5b70fbdcb20aa'}
+            userID={userID} // userID can be something like a phone number or the user id on your own user system.
+            userName={userName}
+            callID={callID} // callID can be any unique string.
+            config={{
+                // You can also use ONE_ON_ONE_VOICE_CALL_CONFIG/GROUP_VIDEO_CALL_CONFIG/GROUP_VOICE_CALL_CONFIG to make more types of calls.
+                ...GROUP_VIDEO_CALL_CONFIG,
+                onOnlySelfInRoom: () => {
+                    navigation.navigate('TabNavigator')
+                },
+                onHangUp: () => {
+                    navigation.navigate('TabNavigator')
+                },
+            }}
+        />
+    );
 }

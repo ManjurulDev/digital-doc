@@ -23,11 +23,11 @@ const DoctorDashboard = ({version}) => {
         return (
             <View style={{marginTop: 20, marginHorizontal: 20}}>
                 <BlockHeader title="Meetings" containerStyle={{marginBottom: 20}}/>
-                {meetings.map((meeting, index) => {
+                {meetings.length > 0 && meetings.map((meeting, index) => {
                     return (
                         <PatientList
                             boxColor="#34B6FF"
-                            title={meeting.patient.name}
+                            title={meeting ? meeting.patient.name : null}
                             icon={<svg.PatientSvg/>}
                             key={index}
                             meeting={meeting}
