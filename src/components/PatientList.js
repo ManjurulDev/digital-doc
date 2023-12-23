@@ -1,11 +1,13 @@
-import {View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {View, Text, TouchableOpacity, Button, StyleSheet, TextInput} from 'react-native';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {theme} from '../constants';
 import {svg} from '../assets';
 import BellSvg from "../assets/svg/BellSvg";
 import TestIsReadySvg from "../assets/svg/TestIsReadySvg";
+import Modal from "react-native-modal";
+
 
 const PatientList = ({
   icon,
@@ -18,6 +20,13 @@ const PatientList = ({
   onPress,
 }) => {
   const navigation = useNavigation();
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const handleModal = () => setIsModalVisible(true);
+
+    const handleSubmit = () => {
+        setIsModalVisible(false)
+    }
 
   const v1 = () => {
     return (
@@ -76,10 +85,53 @@ const PatientList = ({
         </View>
         {/*<svg.BellSvg />*/}
         <svg.TestIsReadySvg />
+
+          <View>
+              <Text onPress={handleModal}> <svg.DashboardSvg/> </Text>
+              <Modal isVisible={isModalVisible} style={styles.container}>
+                  <View style={{ flex: 1 }}>
+                      <TextInput
+                          style={styles.input}
+                          placeholder="Title"
+                      />
+                      <TextInput
+                          style={styles.input}
+                          placeholder="Dose"
+                      />
+                      <TextInput
+                          style={styles.input}
+                          placeholder="Description"
+                          multiline={true}
+                          numberOfLines={4}
+                      />
+                      <TextInput
+                          style={styles.input}
+                          placeholder="Duration"
+                      />
+                      <Button title="Submit" onPress={handleSubmit} />
+                  </View>
+              </Modal>
+          </View>
       </TouchableOpacity>
     );
   };
   return v1();
 };
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "#ffffff",
+        height: 40,
+    },
+    input: {
+        marginTop: 8,
+        marginBottom: 10,
+        borderRadius: 10,
+        fontSize: 16,
+        lineHeight: 20,
+        padding: 8,
+        backgroundColor: 'rgba(151, 151, 151, 0.25)',
+    },
+})
 
 export default PatientList;
