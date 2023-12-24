@@ -24,7 +24,35 @@ const PatientList = ({
     const [isModalVisible, setIsModalVisible] = useState(false);
     const handleModal = () => setIsModalVisible(true);
 
+    const initialData = {
+        title: '',
+        dose: '',
+        instruction: '',
+        duration: '',
+    };
+
+    const [inputData, setInputData] = useState(initialData);
+
+    const handleInputChange = (name, value) => {
+        setInputData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
     const handleSubmit = () => {
+        let medicineInput = {
+            title: inputData.title,
+            dose: inputData.dose,
+            dose_instruction: inputData.instruction,
+            duration: inputData.duration,
+        }
+
+        let formData = {
+            medicines:[medicineInput]
+        }
+
+        console.log('formData:', formData);
         setIsModalVisible(false)
     }
 
@@ -90,24 +118,19 @@ const PatientList = ({
               <Text onPress={handleModal}> <svg.DashboardSvg/> </Text>
               <Modal isVisible={isModalVisible} style={styles.container}>
                   <View style={{ flex: 1 }}>
-                      <TextInput
-                          style={styles.input}
-                          placeholder="Title"
-                      />
-                      <TextInput
-                          style={styles.input}
-                          placeholder="Dose"
-                      />
-                      <TextInput
-                          style={styles.input}
-                          placeholder="Description"
-                          multiline={true}
-                          numberOfLines={4}
-                      />
-                      <TextInput
-                          style={styles.input}
-                          placeholder="Duration"
-                      />
+
+                      {Object.keys(inputData).map((name, index) => (
+                          <View key={index}>
+                              <Text style={{textTransform:'uppercase'}}>{`${name}:`}</Text>
+                              <TextInput
+                                  style={styles.input}
+                                  multiline={true}
+                                  numberOfLines={2}
+                                  value={inputData[name]}
+                                  onChangeText={(text) => handleInputChange(name, text)}
+                              />
+                          </View>
+                      ))}
                       <Button title="Submit" onPress={handleSubmit} />
                   </View>
               </Modal>
