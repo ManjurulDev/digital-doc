@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Linking} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
@@ -18,6 +18,12 @@ const DiagnosticItem = ({
   onPress,
 }) => {
   const navigation = useNavigation();
+
+    const downloadPrescription = (id) => {
+        Linking.openURL(`https://server.zyngchat.com/api/meetings/${id}/download-prescription`).catch(err => console.error("Couldn't load page", err));
+    };
+
+
 
   const v1 = () => {
     return (
@@ -76,6 +82,9 @@ const DiagnosticItem = ({
         </View>
         {/*<svg.BellSvg />*/}
         <svg.TestIsReadySvg />
+          <Text onPress={() => downloadPrescription(meeting.id)}>
+                <svg.DashboardSvg />
+          </Text>
       </TouchableOpacity>
     );
   };
