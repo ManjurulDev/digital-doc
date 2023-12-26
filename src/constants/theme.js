@@ -9,6 +9,7 @@ const colors = {
   mainGreen: '#18DF80',
   stroke: '#D3E3F1',
   transparent: 'transparent',
+  mainColor: '#01579b',
 };
 
 const fonts = {

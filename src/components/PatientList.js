@@ -56,6 +56,8 @@ const PatientList = ({
         submitPrescription(meeting.id, {medicines}).then((res) => {
             console.log(res)
             setIsModalVisible(false);
+        }).catch((error)=>{
+            setIsModalVisible(false);
         })
     }
 
