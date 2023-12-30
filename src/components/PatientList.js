@@ -56,7 +56,7 @@ const PatientList = ({
         submitPrescription(meeting.id, {medicines}).then((res) => {
             console.log(res)
             setIsModalVisible(false);
-        }).catch((error)=>{
+        }).catch((error) => {
             setIsModalVisible(false);
         })
     }
@@ -175,6 +175,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         padding: 8,
+        color: '#01579b',
         backgroundColor: 'rgba(151, 151, 151, 0.25)',
     },
 })
