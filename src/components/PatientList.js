@@ -6,6 +6,7 @@ import {theme} from '../constants';
 import {svg} from '../assets';
 import Modal from "react-native-modal";
 import {submitPrescription} from "../screens/app/api/doctor.api";
+import {components} from "./index";
 
 
 const PatientList = ({
@@ -36,6 +37,7 @@ const PatientList = ({
             borderWidth: 1,
             borderColor: '#ddd',
             padding: 10,
+            color: '#01579b',
             marginBottom: 10,
             borderRadius: 5,
         },
@@ -138,6 +140,7 @@ const PatientList = ({
                                     </View>
                                 ))}
                             </ScrollView>
+
 
                             <TextInput style={customInputStyle.input} placeholder="Title" value={newMedicine.title}
                                        onChangeText={(text) => setNewMedicine({...newMedicine, title: text})}/>
